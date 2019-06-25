@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="testimonial" model="ir.ui.view">
+        <field name="name">Testimonial</field>
+        <field name="type">qweb</field>
+        <field name="key">website.testimonial</field>
+        <field name="arch" type="xml">
+            <t name="Testimonial Savvy" t-name="website.testimonial">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure oe_empty">
+                        <section id="testimonial">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 class="text-primary">WHAT OUT CLIENTS SAY</h1>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 mt32 mb32">
+                                        <div class="col-md-3 col-sm-3">
+                                            <img class="img img-responsive img-circle client-img-savvy"
+                                                 src="/customer_mobile_savvy/static/src/image/testimonial/client-1.png"/>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <h2 class="text-primary">
+                                                Victor Hugo Lopez
+                                            </h2>
+                                            <p class="client-say">
+                                                After being screwed over by Freedom and not receiving my Note8 I finally
+                                                decided to just give up on Freedom and go to Koodo, Went to the Tussier
+                                                Rd, kitchener location, got a super cheap plan with 4gb of data and the
+                                                Notes, all of that took maybe an hour. Customer service was amazing
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 mt32 mb32">
+                                        <div class="col-md-3 col-sm-3">
+                                            <img class="img img-responsive img-circle client-img-savvy"
+                                                 src="/customer_mobile_savvy/static/src/image/testimonial/client-2.png"/>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <h2 class="text-primary">
+                                                Hardy Torn
+                                            </h2>
+                                            <p class="client-say">
+                                                After being screwed over by Freedom and not receiving my Note8 I finally
+                                                decided to just give up on Freedom and go to Koodo
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 mt32 mb32">
+                                        <div class="col-md-3 col-sm-3">
+                                            <img class="img img-responsive img-circle client-img-savvy"
+                                                 src="/customer_mobile_savvy/static/src/image/testimonial/client-3.png"/>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <h2 class="text-primary">
+                                                John Stallone
+                                            </h2>
+                                            <p class="client-say">
+                                                After being screwed over by Freedom and not receiving my Note8 I finally
+                                                decided to just give up on Freedom
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 mt32 mb32">
+                                        <div class="col-md-3 col-sm-3">
+                                            <img class="img img-responsive img-circle client-img-savvy"
+                                                 src="/customer_mobile_savvy/static/src/image/testimonial/client-4.png"/>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <h2 class="text-primary">
+                                                Victor Hugo Lopez
+                                            </h2>
+                                            <p class="client-say">
+                                                After being screwed over by Freedom and not receiving my Note8 I finally
+                                                decided to just give up on Freedom and go to Koodo, Went to the Tussier
+                                                Rd, kitchener location, got a super cheap plan with 4gb of data and the
+                                                Notes, all of that took maybe an hour. Customer service was amazing
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+    <record id="testimonial_savvy" model="website.page">
+        <field name="url">/testimonial</field>
+        <field name="website_published">True</field>
+        <field name="view_id" ref="testimonial"/>
+    </record>
+</odoo>
