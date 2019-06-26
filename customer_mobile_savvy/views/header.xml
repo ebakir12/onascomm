@@ -9,7 +9,7 @@
         </xpath>
     </template>
 
-    <!--template id="portal_inherit" inherit_id="portal.frontend_layout">
+    <template id="portal_inherit" inherit_id="portal.frontend_layout">
         <xpath expr="//div[hasclass('navbar','navbar-default','navbar-static-top')]" position="before">
             <div class="container">
                 <div class="row">
@@ -103,5 +103,5 @@
                 </li>
             </ul>
         </xpath>
-    </template-->
+    </template>
 </odoo>
