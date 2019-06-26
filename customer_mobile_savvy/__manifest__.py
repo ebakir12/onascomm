@@ -21,7 +21,7 @@
         #'views/login.xml',
         #'views/homepage.xml',
         #'views/home-personal.xml',
-        #'views/header.xml',
+        'views/header.xml',
         #'views/footer_template.xml',
         #'views/aboutus_template.xml',
         #'views/contactus_template.xml',
