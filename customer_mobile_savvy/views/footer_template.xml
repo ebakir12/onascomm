@@ -103,8 +103,7 @@
         </xpath>
     </template>
 
-    <template id="website.footer_default" inherit_id="customer_mobile_savvy.website_savvy_footer_custom"
-              customize_show="True" active="False" name="Automatic Footer">
+    <template id="website.footer_default" inherit_id="customer_mobile_savvy.website_savvy_footer_custom" customize_show="True" active="False" name="Automatic Footer">
         <xpath expr="//section[@id='footer']" position="replace">
             <div id="footer" class="container">
                 <div class="row">
