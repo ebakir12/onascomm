@@ -17,9 +17,9 @@
         'snippet_product_carousel_73lines',
     ],
     'data': [
-        #'views/assets.xml',
+        'views/assets.xml',
         'views/login.xml',
-        #'views/homepage.xml',
+        'views/homepage.xml',
         #'views/home-personal.xml',
         'views/header.xml',
         #'views/footer_template.xml',
