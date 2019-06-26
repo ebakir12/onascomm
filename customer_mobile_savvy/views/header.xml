@@ -10,7 +10,7 @@
     </template>
 
     <template id="portal_inherit" inherit_id="portal.frontend_layout">
-        <xpath expr="//div[hasclass('navbar','navbar-default','navbar-static-top')]" position="before">
+        <xpath expr="//div[hasclass('navbar','navbar-expand-md','navbar-light', 'bg-light')]" position="before">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 pt15 hidden-xs hidden-sm">
