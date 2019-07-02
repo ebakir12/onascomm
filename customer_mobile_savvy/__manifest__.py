@@ -3,8 +3,8 @@
 # See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Website Mobile Savvy',
-    'description': 'Website Mobile Savvy',
+    'name': 'Website TELUS',
+    'description': 'Website TELUS',
     'category': 'Theme/Business',
     'version': '11.0.1.0.0',
     'summary': 'Multi Purpose,Responsive and Fully '
