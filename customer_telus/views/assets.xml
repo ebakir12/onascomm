@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="telus_frontend_style" name="TELUS style" inherit_id="website.assets_frontend">
+        <xpath expr="//link[last()]" position="after">
+            <link href="/customer_telus/static/src/less/customize.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/fonts.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/header.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/footer.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/homepage.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/login.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/testimonial.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/desktop.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/tablet.less" rel="stylesheet" type="text/less"/>
+            <link href="/customer_telus/static/src/less/mobile.less" rel="stylesheet" type="text/less"/>
+        </xpath>
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/customer_telus/static/src/js/custom.js"/>
+        </xpath>
+    </template>
+</odoo>

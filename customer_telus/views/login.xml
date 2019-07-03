@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="web.login" name="Login">
+        <t t-call="web.login_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-primary">My Account</h1>
+                    </div>
+                    <div class="col-md-8 col-sm-12 col-md-offset-2 border-login-box pad0 mb64">
+                        <div class="col-md-6 col-sm-6">
+                            <form class="oe_login_form" role="form"
+                                  t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post"
+                                  onsubmit="this.action = this.action + location.hash">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <p class="text-primary">Login</p>
+                                <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
+                                    <label for="db" class="control-label">Database</label>
+                                    <div class="input-group">
+                                        <input type="text" name="db" t-att-value="request.db" id="db"
+                                               class="form-control"
+                                               required="required" readonly="readonly"/>
+                                        <span class="input-group-btn">
+                                            <a href="/web/database/selector" class="btn btn-default">Select
+                                                <i class="fa fa-database"/>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group field-login">
+                                    <input type="text" name="login" t-att-value="login" id="login" class="form-control"
+                                           required="required" autofocus="autofocus" autocapitalize="off"
+                                           placeholder="Email/Username"/>
+                                </div>
+
+                                <div class="form-group field-password">
+                                    <input type="password" name="password" id="password" class="form-control"
+                                           required="required" autocomplete="current-password"
+                                           t-att-autofocus="'autofocus' if login else None" maxlength="4096"
+                                           placeholder="Password"/>
+                                </div>
+
+                                <p class="alert alert-danger" t-if="error">
+                                    <t t-esc="error"/>
+                                </p>
+                                <p class="alert alert-success" t-if="message">
+                                    <t t-esc="message"/>
+                                </p>
+
+                                <input type="hidden" name="redirect" t-att-value="redirect"/>
+                                <div class="clearfix oe_login_buttons">
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg btn-sqr">Continue
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6 col-sm-6 bg-register">
+                            <div class="login-form-savvy">
+                                <p class="font36 font-light mb32">Not registered?</p>
+                                <p>My Account allows you to access and manage your Mobile Savvy Services online</p>
+                                <div class="text-center">
+                                    <a class="btn btn-success outline font-light font24" href="/web/sign">Join My
+                                        Account
+                                        <i class="fa fa-angle-right icon-circle-login"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

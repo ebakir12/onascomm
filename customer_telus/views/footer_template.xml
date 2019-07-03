@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="website_savvy_footer_custom" inherit_id="website.footer_custom" name="Custom Footer" active="True">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <section class="oe_structure bg-success text-white" id="footer">
+                <section class="footer container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <img class="img img-responsive" id="footer-logo-savvy"
+                                 src="/customer_telus/static/src/image/personal_xl/logo-white.png"/>
+                            <ul class="list-unstyled mt16">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/personal-homepage">Personal</a>
+                                </li>
+                                <li>
+                                    <a href="/">Business</a>
+                                </li>
+                                <li>
+                                    <a href="/aboutus">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="/testimonial">Testimonial</a>
+                                </li>
+                                <li>
+                                    <a href="/contactus">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="block-title">
+                                <h5>Instagram Photo</h5>
+                                <!-- InstaWidget -->
+                                <a href="https://instawidget.net/v/user/mobilesavvytelusauthorized"
+                                   id="link-847fe38b6fc37b0ebb365e2f1e103b6b0304abdc34baed5d271e7d95895db731">
+                                    @mobilesavvytelusauthorized
+                                </a>
+                                <script src="https://instawidget.net/js/instawidget.js?u=847fe38b6fc37b0ebb365e2f1e103b6b0304abdc34baed5d271e7d95895db731&amp;width=300px"></script>
+                            </div>
+                            <a href="#" class="btn btn-primary pull-right">More</a>
+                        </div>
+                        <div class="col-md-5 col-sm-12">
+                            <div class="block-title">
+                                <h5>Contact Us</h5>
+                            </div>
+                            <div class="block-content mt16 mb16">
+                                <p><span t-field="res_company.city"/>,
+                                    <br/>
+                                    <span t-field="res_company.state_id"/>,
+                                    <br/>
+                                    <span t-field="res_company.country_id"/>,
+                                    <span t-field="res_company.zip"/>
+                                </p>
+                                <p>
+                                    <span t-field="res_company.email"/>
+                                    <br/>
+                                    Phone :
+                                    <span t-field="res_company.phone"/>
+                                </p>
+                                <ul class="social-icons icon-circle icon-rotate list-unstyled list-inline">
+                                    <li t-if="website.social_facebook">
+                                        <a t-att-href="website.social_facebook" t-if="website.social_facebook">
+                                            <i class="fa fa-facebook-square"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_twitter">
+                                        <a t-att-href="website.social_twitter" t-if="website.social_twitter">
+                                            <i class="fa fa-twitter"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_linkedin">
+                                        <a t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                                            <i class="fa fa-linkedin"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_youtube">
+                                        <a t-att-href="website.social_youtube" t-if="website.social_youtube">
+                                            <i class="fa fa-youtube-play"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_googleplus">
+                                        <a t-att-href="website.social_googleplus" t-if="website.social_googleplus"
+                                           rel="publisher">
+                                            <i class="fa fa-google-plus-square"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_github">
+                                        <a t-att-href="website.social_github" t-if="website.social_github">
+                                            <i class="fa fa-github"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <small>© 2018 Mobilesavvy.ca</small>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </xpath>
+    </template>
+
+    <template id="website.footer_default" inherit_id="customer_telus.website_savvy_footer_custom"
+              customize_show="True" active="False" name="Automatic Footer">
+        <xpath expr="//section[@id='footer']" position="replace">
+            <div id="footer" class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3">
+                        <h4>Our products &amp; Services</h4>
+                        <ul class="list-unstyled" id="products">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-lg-3" id="info">
+                        <h4>Connect with us</h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="website.contactus">Contact us</a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li t-ignore="true">
+                                <i class="fa fa-phone"/>
+                                <span t-field="res_company.phone"/>
+                            </li>
+                            <li t-ignore="true">
+                                <i class="fa fa-envelope"/>
+                                <span t-field="res_company.email"/>
+                            </li>
+                        </ul>
+                        <h2>
+                            <a t-att-href="website.social_facebook" t-if="website.social_facebook">
+                                <i class="fa fa-facebook-square"/>
+                            </a>
+                            <a t-att-href="website.social_twitter" t-if="website.social_twitter">
+                                <i class="fa fa-twitter"/>
+                            </a>
+                            <a t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                                <i class="fa fa-linkedin"/>
+                            </a>
+                            <a t-att-href="website.social_youtube" t-if="website.social_youtube">
+                                <i class="fa fa-youtube-play"/>
+                            </a>
+                            <a t-att-href="website.social_googleplus" t-if="website.social_googleplus"
+                               rel="publisher">
+                                <i class="fa fa-google-plus-square"/>
+                            </a>
+                            <a t-att-href="website.social_github" t-if="website.social_github">
+                                <i class="fa fa-github"/>
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="col-md-4 col-lg-5 col-lg-offset-1">
+                        <h4>
+                            <span t-field="res_company.name"/>
+                            <small>
+                                <a href="website.aboutus">About us</a>
+                            </small>
+                        </h4>
+                        <div>
+                            <p>
+                                We are a team of passionate people whose goal is to improve
+                                everyone's
+                                life through disruptive products. We build great
+                                products to solve
+                                your
+                                business problems.
+                            </p>
+                            <p>
+                                Our products are designed for small to medium size companies
+                                willing to optimize
+                                their performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

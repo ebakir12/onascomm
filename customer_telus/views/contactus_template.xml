@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="website.contactus" model="ir.ui.view">
+        <field name="name">Contact Us</field>
+        <field name="type">qweb</field>
+        <field name="key">website.contactus</field>
+        <field name="arch" type="xml">
+            <t name="Contact Us" t-name="website.contactus">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="oe_structure"/>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="text-primary" id="contact-heading">Contact</h1>
+                                    <img class="img img-responsive"
+                                         src="/customer_telus/static/src/image/contactus/cotact-us-image.png"/>
+                                    <h4 class="mt32">Our support team is always ready to support your business. Whether
+                                        you are in
+                                        another province or city,office.
+                                    </h4>
+                                    <p class="mt32 mb64">iPhone X features an all-screen design with a 5.8-inch Super
+                                        Retina HD display
+                                        with FOR and Two Tone. Designed with the most durable glass ever in a smartphone
+                                        and a surgical-grade stainless steel band. Changes mrelessly (charging mat sold
+                                        separately). Face ID lets you unlock and use Apple Pay with Just a glance.
+                                        Supports augmented reality experiences in games and apps. With iPhone X, the
+                                        next era of !Phone has begun. More Information, Supports augmented reality
+                                        experiences in games and app. With iPhone X, the next era of iPhone has begun.
+                                        More Information
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mt32 mb32 text-primary">Talk to our Team</h5>
+                                    <div class="text-center mt64" name="mail_button">
+                                        <a t-attf-href="mailto:{{ res_company.email }}" class="btn btn-primary"
+                                           id="o_contact_mail">Send us an email
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="oe_structure"/>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+    <template id="website_crm.contactus_form" name="Contact Form" inherit_id="website.contactus" customize_show="True">
+        <xpath expr="//div[@name='mail_button']" position="replace">
+            <div>
+                <form action="/website_form/" method="post" data-model_name="crm.lead"
+                      data-success_page="/contactus-thank-you"
+                      class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data"
+                      data-editable-form="false">
+                    <div class="form-group form-field o_website_form_required_custom">
+                        <div class="mb16 col-sm-12">
+                            <input type="text" class="form-control o_website_form_input" name="contact_name"
+                                   t-att-value="request.params.get('contact_name', '')" required="" placeholder="Name"/>
+                        </div>
+                    </div>
+                    <div class="form-group form-field">
+                        <div class="mb16 col-sm-12">
+                            <input type="text" class="form-control o_website_form_input" name="phone"
+                                   t-att-value="request.params.get('phone', '')" placeholder="Phone"/>
+                        </div>
+                    </div>
+                    <div class="form-group form-field o_website_form_required_custom">
+                        <div class="mb16 col-sm-12">
+                            <input type="text" class="form-control o_website_form_input" name="email_from" required=""
+                                   t-att-value="request.params.get('email_from', '')" placeholder="Email"/>
+                        </div>
+                    </div>
+                    <div class="form-group form-field o_website_form_required_custom">
+                        <div class="mb16 col-sm-12">
+                            <input type="text" class="form-control o_website_form_input" name="partner_name" required=""
+                                   t-att-value="request.params.get('partner_name', '')" placeholder="Company Name"/>
+                        </div>
+                    </div>
+                    <div class="form-group form-field o_website_form_required">
+                        <div class="mb16 col-sm-12">
+                            <input type="text" class="form-control o_website_form_input" name="name" required=""
+                                   t-att-value="request.params.get('name', '')" placeholder="Subject"/>
+                        </div>
+                    </div>
+                    <div class="form-group form-field o_website_form_required_custom">
+                        <div class="mb16 col-sm-12">
+                            <textarea class="form-control o_website_form_input" name="description" required=""
+                                      placeholder="Message">
+                                <t t-esc="request.params.get('description', '')"/>
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="mb16 col-sm-12">
+                            <span class="btn btn-primary btn-lg o_website_form_send">Submit</span>
+                            <span id="o_website_form_result"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </xpath>
+    </template>
+</odoo>
