@@ -6,7 +6,7 @@
     'website': '',
     'version': '1.0',
     'description': "Dealer Info is used to store the organization information to enable communication between TELUS EPP portal and Odoo",
-    'depends': ['website', 'sale_payment', 'website_payment', 'website_mail', 'website_form'],
+    'depends': ['website', 'website_payment', 'website_mail', 'website_form'],
     'data': [
         'security/ir.model.access.csv',
         'views/dealer_info_views.xml',
