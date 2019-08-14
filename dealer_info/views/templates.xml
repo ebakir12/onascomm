@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="form_product_pricelist_custom" model="ir.ui.view"> 
+		<field name="name">di_product.pricelist.form.inherited</field>
+		     <field name="model">product.pricelist</field> 
+		     <field name="inherit_id" ref="product.product_pricelist_view"/> 
+		     <field name="arch" type="xml"> 
+			  <xpath expr="//field[@name='country_group_ids']" position="after"> 
+			       <field name="telus_discount_image" widget='image'/>
+			  </xpath> 
+		</field> 
+	</record>
+	
+	
+	<template id="telus_welcome" name="Welcome">
+	    <t t-call="website.layout">
+             <t t-set="additional_title">EPP Welcome</t>
+	        <div id="wrap" class="oe_structure oe_empty">
+      <section class="s_title">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="text-left o_default_snippet_text"><span t-esc="request.env.user.dealer_info_id.name">Business Here!</span></h1>
+              <h3 class="text-center text-muted o_default_snippet_text">Welcome <span t-esc="request.env.user.name"></span></h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="s_big_picture bg-gray-lighter">
+        <div class="container">
+          <h2 class="text-center o_default_snippet_text"> </h2>
+          <div class="row">
+            <div class="col-md-12">
+              <!--img class="img img-responsive" src="/dealer_info/static/images/30percentoff.PNG" style="margin: 0 auto;" alt="30% off"/-->
+	<span t-field="request.env.user.property_product_pricelist.telus_discount_image" t-field-options='{"widget": "image", "style": "margin: 0 auto;"}'></span>
+            </div>
+            <div class="col-md-6 col-md-offset-3 mb16 mt16">
+              <p class="text-center">
+                <b class="o_default_snippet_text"> </b>
+              </p>
+              <p class="text-center o_default_snippet_text">
+                        Please review the Phones available to you through your Employee Purchase Program
+                    </p>
+              <p class="text-center">
+                <a href="/shop/category/phone-19" class="btn btn-primary">Phones</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+	        </div>
+	    </t>
+	</template>
+	
+	<template id="frontend_layout" name="Main Frontend Layout (Custom)" inherit_id="portal.frontend_layout" customize_show="True">
+		<xpath expr="//ul[@id='top_menu']/li[1]" position="before">
+		    <li t-if="not user_id._is_public()">
+			<a href="/epp_select_dealer">
+			    <span data-oe-model="website.menu" data-oe-id="8" data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name">EPP Business</span>
+			</a>
+		    </li>
+		</xpath>
+	</template>
+	<!--template id="res.users.tree" name="Res.Users.Tree (Custom)" inherit_id="base.view_users_tree">
+		<xpath expr="/" position="replace">
+		    <tree string="Users">
+                    <field name="name"/>
+                    <field name="login"/>
+                    <field name="lang"/>
+                    <field name="login_date"/>
+                    <field name="dealer_info_id"/>
+                    <field name="property_product_pricelist"/>
+                </tree>
+		</xpath>
+	</template-->
+</odoo>

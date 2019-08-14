@@ -1,0 +1,20 @@
+{
+    'name': 'Dealer Info',
+    'category': 'Website',
+    'sequence': 55,
+    'summary': 'Dealer Portal for TELUS EVS',
+    'website': '',
+    'version': '1.0',
+    'description': "Dealer Info is used to store the organization information to enable communication between TELUS EPP portal and Odoo",
+    'depends': ['website', 'sale_payment', 'website_payment', 'website_mail', 'website_form'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/dealer_info_views.xml',
+        'views/epp_dealer.xml',
+        'views/templates.xml',
+        'views/res_config_settings_views.xml',
+        'data/action_menu.xml',
+    ],    
+    'installable': True,
+    #'application': True,
+}
