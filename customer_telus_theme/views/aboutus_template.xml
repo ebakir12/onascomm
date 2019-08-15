@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="aboutus_inherit" inherit_id="website.aboutus">
+        <xpath expr="//div[hasclass('oe_structure')]" position="replace">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section id="about-us-telus">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="text-primary">About Us</h1>
+                            </div>
+                            <div class="col-md-6">
+                                <img class="img img-responsive"
+                                     src="/customer_telus_theme/static/src/image/about_xl/about-us.png"/>
+                            </div>
+                            <div class="col-md-6">
+                                <h2 class="text-primary">More than 10 years of cleaning experience</h2>
+                                <p>After being screwed over by Freedom and not receiving my Noted I finally decid-ed to
+                                    just give up on Freedom and go to Koodo. Went to the Trussler Rd, kitch-ener
+                                    location, got a super cheap plan with 4gb of data and the Noted, all of that took
+                                    maybe an hour. Customer service was amazing,After being screwed over by Freedom and
+                                    not receiving my Note8 I finally decided to just give up on Free-dom and go to
+                                    Koodo. Went to the Trussler Rd, kitchener location, got a super cheap plan with 4gb
+                                    of data and the Noted, all of that took maybe an hour. Cus-tomer service was amazing
+                                </p>
+                            </div>
+                            <div class="col-md-12 col-sm-12 text-center mt64 mb64">
+                                <div class="col-md-4 col-sm-4">
+                                    <img class="img img-responsive img-circle center-block"
+                                         src="/customer_telus_theme/static/src/image/about_xl/team-1.png"/>
+                                    <h3 class="text-primary">Ehab Bakir</h3>
+                                    <p>Ehab started In 1995 and provides the leadership needed to maintain our reputaton
+                                        and goodwill in the community.
+                                    </p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <img class="img img-responsive img-circle center-block"
+                                         src="/customer_telus_theme/static/src/image/about_xl/team-2.png"/>
+                                    <h3 class="text-primary">Waleed Salha</h3>
+                                    <p>Waleed started in 1995 and provides the leader-ship needed to maintain our
+                                        reputaton and good-will In the community.
+                                    </p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <img class="img img-responsive img-circle center-block"
+                                         src="/customer_telus_theme/static/src/image/about_xl/team-1.png"/>
+                                    <h3 class="text-primary">Tarek Salha</h3>
+                                    <p>Ehab started In 1995 and provides the leadership needed to maintain our reputaton
+                                        and goodwill in the community.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>

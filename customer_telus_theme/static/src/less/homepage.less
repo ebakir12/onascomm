@@ -1,0 +1,165 @@
+.pt15 {
+  padding-top: 15px;
+}
+
+.btn-right:after {
+  transform: skew(10deg); /* adjust this to tweak the angle */
+}
+
+.btn {
+  border-radius: 10px;
+  transform: skew(-10deg);
+}
+
+.s_banner {
+  .carousel-indicators .active {
+    width: 20px;
+    height: 20px;
+    background-color: @color-primary;
+  }
+
+  .carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    background-color: @color-success;
+    border: none;
+  }
+
+  .carousel-control.left, .carousel-control.right {
+    background: transparent;
+  }
+
+  .carousel-indicators {
+    left: 22%;
+  }
+}
+
+#product-link div.col-md-4:not(:last-child) {
+  border-right: 1px solid #cbd0d2;
+}
+
+.s_product_carousel {
+  .headline {
+    h2 {
+      margin-top: 50px;
+      color: @color-primary;
+      font-size: 40px;
+    }
+
+    hr {
+      display: none;
+    }
+  }
+
+  h5 {
+    text-align: center;
+
+    a {
+      color: @color-success;
+    }
+  }
+
+  .product_price {
+    text-align: center;
+    color: @color-primary;
+  }
+}
+
+#product-link {
+  .img-text-wrapper {
+    h3 {
+      color: @color-success;
+    }
+  }
+}
+
+.button-separator {
+  h2 {
+    width: 100%;
+    border-bottom: 1px solid #cbd0d2;
+    margin: 10px 0 20px;
+
+    > span {
+      background: #fff;
+      position: relative;
+      top: 20px;
+
+      > a span {
+        transform: skew(10deg);
+      }
+    }
+  }
+}
+
+.pt32 {
+  padding-top: 32px;
+}
+
+.pb32 {
+  padding-bottom: 32px;
+}
+
+.testimonial-item .img-pos {
+  position: relative;
+  top: -60px;
+}
+
+.testimonial-item blockquote {
+  border-radius: 20px;
+  border: 1px solid #fff;
+  transform: skew(-10deg);
+}
+
+.text-right {
+  text-align: right;
+}
+
+.carousel-indicators .active {
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+}
+
+.carousel-indicators li {
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+.carousel-indicators li:after {
+  border: 1px solid;
+  content: "\f007";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.carousel-indicators {
+  left: 59%;
+}
+
+#fleet-complete {
+  #fleet-img {
+    height: 182px;
+    padding-left: 0;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 20px;
+    right: 60px;
+  }
+}
+
+#fleet-complete-personal {
+  #fleet-img {
+    padding-right: 0;
+    height: 216px;
+  }
+}
