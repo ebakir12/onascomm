@@ -65,7 +65,7 @@
             <div class="product-wrapper">
               <a href="/shop/category/phones-19">
                 <div class="img-text-wrapper">
-                  <img class="img img-responsive" src="/customer_mobile_savvy/static/src/image/personal_xl/product-1.png"/>
+                  <img class="img img-responsive" src="/customer_telus_theme/static/src/image/personal_xl/product-1.png"/>
                   <h3 class="text-center h2">Smart Phones</h3>
                 </div>
               </a>
@@ -75,7 +75,7 @@
             <div class="product-wrapper">
               <a href="/shop/category/smart-watches-29">
                 <div class="img-text-wrapper">
-                  <img class="img img-responsive" src="/customer_mobile_savvy/static/src/image/personal_xl/product-2.png"/>
+                  <img class="img img-responsive" src="/customer_telus_theme/static/src/image/personal_xl/product-2.png"/>
                   <h3 class="text-center h2">Smart Watches</h3>
                 </div>
               </a>
@@ -85,7 +85,7 @@
             <div class="product-wrapper">
               <a href="/shop/category/tablets-28">
                 <div class="img-text-wrapper">
-                  <img class="img img-responsive" src="/customer_mobile_savvy/static/src/image/personal_xl/product-3.png"/>
+                  <img class="img img-responsive" src="/customer_telus_theme/static/src/image/personal_xl/product-3.png"/>
                   <h3 class="h2 text-center">Tablets</h3>
                 </div>
               </a>
