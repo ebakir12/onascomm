@@ -20,7 +20,7 @@
                         </a>
                     </div>
                     <div class="col-md-5 col-xs-12 pad0">
-                        <ul class="list-inline text-center" id="tab-group-btn">
+                        <ul class="hidden list-inline text-center" id="tab-group-btn">
                             <li id="personal-btn">
                                 <a href="/personal-homepage" class="btn btn-primary btn-md btrlr">
                                     <i class="fa fa-user fa-2x"/>
