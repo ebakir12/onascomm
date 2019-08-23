@@ -5,45 +5,31 @@
         <field name="type">qweb</field>
         <field name="key">website.contactus</field>
         <field name="arch" type="xml">
-            <t name="Contact Us" t-name="website.contactus">
-                <t t-call="website.layout">
-                    <div id="wrap">
-                        <div class="oe_structure"/>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h1 class="text-primary" id="contact-heading">Contact</h1>
-                                    <img class="img img-responsive"
-                                         src="/customer_telus_theme/static/src/image/contactus/cotact-us-image.png"/>
-                                    <h4 class="mt32">Our support team is always ready to support your business. Whether
-                                        you are in
-                                        another province or city,office.
-                                    </h4>
-                                    <p class="mt32 mb64">iPhone X features an all-screen design with a 5.8-inch Super
-                                        Retina HD display
-                                        with FOR and Two Tone. Designed with the most durable glass ever in a smartphone
-                                        and a surgical-grade stainless steel band. Changes mrelessly (charging mat sold
-                                        separately). Face ID lets you unlock and use Apple Pay with Just a glance.
-                                        Supports augmented reality experiences in games and apps. With iPhone X, the
-                                        next era of !Phone has begun. More Information, Supports augmented reality
-                                        experiences in games and app. With iPhone X, the next era of iPhone has begun.
-                                        More Information
-                                    </p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h5 class="mt32 mb32 text-primary">Talk to our Team</h5>
-                                    <div class="text-center mt64" name="mail_button">
-                                        <a t-attf-href="mailto:{{ res_company.email }}" class="btn btn-primary"
-                                           id="o_contact_mail">Send us an email
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="oe_structure"/>
-                    </div>
-                </t>
-            </t>
+<t name="Contact Us" t-name="website.contactus">
+  <t t-call="website.layout">
+    <div id="wrap">
+      <div class="oe_structure"/>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="mt32 mb32 text-primary">Talk to our Team</h5>
+            <div class="text-center mt64" name="mail_button">
+              <a t-attf-href="mailto:{{ res_company.email }}" class="btn btn-primary" id="o_contact_mail">Send us an email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="oe_structure">
+        <section class="s_text_block">
+          <div class="container">
+            <h2 class="text-center">&amp;nbsp;</h2>
+            <h3 class="text-center text-muted">&amp;nbsp;</h3>
+          </div>
+        </section>
+      </div>
+    </div>
+  </t>
+</t>
         </field>
     </record>
     <template id="website_crm.contactus_form" name="Contact Form" inherit_id="website.contactus" customize_show="True">
