@@ -1,0 +1,204 @@
+@color-primary: #66cc00;
+@color-success: #4b286d;
+@color-info: green;
+@color-warning: yellow;
+@color-danger: red;
+
+.text-primary {
+  color: @color-primary;
+}
+
+.text-success {
+  color: @color-success;
+}
+
+body .text-success {
+  color: @color-success;
+}
+
+body.o_connected_user {
+  color: #8c8c8c;  
+}
+
+.text-info {
+  color: @color-info;
+}
+
+.text-warning {
+  color: @color-warning;
+}
+
+.text-danger {
+  color: @color-danger;
+}
+
+.bg-primary {
+  background: @color-primary;
+}
+
+.bg-success {
+  background: @color-success;
+}
+
+.bg-info {
+  background: @color-info;
+}
+
+.bg-warning {
+  background: @color-warning;
+}
+
+.bg-danger {
+  background: @color-danger;
+}
+
+h3 {
+ color: @color-success;   
+}
+
+#wrapwrap .s_separator_shade hr {
+    height: 2px;
+    border-top: 0;
+    background: #8c8c8c;
+    border-radius: 5px;
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: @color-success;
+}
+
+/* Label Colors
+   ========================================================================== */
+
+//** Default label background color
+@label-default-bg: @color-primary;
+//** Primary label background color
+@label-primary-bg: @color-primary;
+//** Success label background color
+@label-success-bg: @color-success;
+//** Info label background color
+@label-info-bg: @color-info;
+//** Warning label background color
+@label-warning-bg: @color-warning;
+//** Danger label background color
+@label-danger-bg: @color-danger;
+
+//** Default label text color
+@label-color: #fff;
+//** Default text color of a linked label
+@label-link-hover-color: #fff;
+
+@body-bg: #fff;
+
+/* Button Colors
+   ========================================================================== */
+
+@btn-font-weight: normal;
+
+@btn-default-color: @text-color;
+@btn-default-bg: #fff;
+@btn-default-border: #ddd;
+
+@btn-primary-color: #fff;
+@btn-primary-bg: @color-primary;
+@btn-primary-border: @btn-primary-bg;
+
+@btn-success-color: #fff;
+@btn-success-bg: @color-success;
+@btn-success-border: @btn-success-bg;
+
+@btn-info-color: #fff;
+@btn-info-bg: @color-info;
+@btn-info-border: @btn-info-bg;
+
+@btn-warning-color: #fff;
+@btn-warning-bg: @color-warning;
+@btn-warning-border: @btn-warning-bg;
+
+@btn-danger-color: #fff;
+@btn-danger-bg: @color-danger;
+@btn-danger-border: @btn-danger-bg;
+
+@btn-link-disabled-color: @gray-light;
+
+// Allows for customizing button radius independently from global border radius
+@btn-border-radius-base: @border-radius-base;
+@btn-border-radius-large: @border-radius-large;
+@btn-border-radius-small: @border-radius-small;
+
+#wrapwrap {
+  [class *= "bg-"].automatic-color, .automatic-color {
+    color: @gray-darker;
+  }
+
+  .bg-white [class *= "bg-"] .text-white, [class *= "bg-"].text-white, .text-white {
+    color: #fff;
+  }
+
+  .bg-gray-lighter [class *= "bg-"] .text-gray-lighter, [class *= "bg-"].text-gray-lighter, .text-gray-lighter {
+    color: @gray-lighter;
+  }
+
+  .bg-gray [class *= "bg-"] .text-gray, [class *= "bg-"].text-gray, .text-gray {
+    color: #54595f;/*@gray;*/
+  }
+
+  .bg-gray-darker [class *= "bg-"] .text-gray-darker, [class *= "bg-"].text-gray-darker, .text-gray-darker {
+    color: @gray-darker;
+  }
+
+  .bg-primary [class *= "bg-"] .text-primary, [class *= "bg-"].text-primary, .text-primary {
+    color: @color-primary;
+  }
+  
+  .text-purple-dark {
+    color: @color-success;  
+  }
+}
+
+p {
+ font-family: @font-family-base;   
+}
+
+/* Titles */
+
+@headings-color: inherit;
+@headings-small-color: @color-primary;
+@headings-font-family: 'Amatic SC', sans-serif;
+@headings-font-weight: 700;
+@headings-font-bold: 700;
+@headings-line-height: 1.25;
+
+@font-size-h1: 36px;
+@font-size-h2: 24px;
+@font-size-h3: 21px;
+@font-size-h4: 18px;
+@font-size-h5: 16px;
+@font-size-h6: 14px;
+
+/* Bodytext */
+
+@text-color: @gray-darker;
+
+@font-family-sans-serif: "Helvetica Neue", serif; /*'Josefin Sans', sans-serif;    "HelveticaNeueLTPro-Roman"*/
+@font-family-base: @font-family-sans-serif;
+
+@line-height-base: 1.4;
+@line-height-computed: 24px;
+
+@font-normal: 400;
+@font-bold: 700;
+
+@font-size-large: 24px;
+@font-size-base: 18px;
+@font-size-small: 16px;
+@font-size-extra-small: 14px;
+
+/* Layout */
+
+@layout-font-weight: 400;
+@layout-font-size: @font-size-extra-small;
+
+@btn-font-weight: 400;
+@btn-font-size: @font-size-small;
+@btn-font-family: @font-family-base;
