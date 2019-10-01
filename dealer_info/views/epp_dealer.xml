@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="dealer_info.epp_select_dealer" model="ir.ui.view">
+		<field name="name">EPP Business</field>
+		<field name="type">qweb</field>
+		<field name="key">dealer_info.epp_select_dealer</field>
+		<field name="arch" type="xml">
+			<t name="EPP" t-name="dealer_info.epp_select_dealer">
+				<t t-call="website.layout">
+					<t t-set="additional_title">EPP Business</t>
+					<div id="wrap" class="oe_structure oe_empty">
+						<div class="form-group form-field o_website_form_required">
+							<div class="col-md-offset-3 col-md-5 col-sm-8 text-left">
+								<label class="control-label" for="x_name">Enter Your Company Name</label>
+							</div>
+							<div class="col-md-offset-3 col-md-5 col-sm-8 ">
+								<input list="eppDealers" class="form-control o_website_form_input" id="eppDealerInput" placeholder="Company Name" required="1" autocomplete="off"/>
+								<datalist id="eppDealers">
+									<t t-foreach="request.env['dealer.info'].search([('is_active', '=', True)])" t-as="dealer">
+										<t>
+											<option t-att-data-id="dealer.id" t-att-value="dealer.name"></option>
+										</t>
+									</t>
+								</datalist>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+              							<span id="telus-EPP" class="btn btn-lg btn-primary">Submit</span>&amp;nbsp; <span id="o_website_form_result" class="text-danger ml8"/>
+							</div>
+						</div>
+						<!--/form-->
+						<script>          
+          document.getElementById("telus-EPP").onclick = function(self){
+	   var dealer_id = $('#eppDealers option[value="' + $('#eppDealerInput').val() + '"]').attr('data-id');
+	    if(dealer_id){
+							document.getElementById("o_website_form_result").innerHTML = "";
+                 window.location.href = "/telus/" + dealer_id;
+		}
+	    else
+	    {
+		document.getElementById("o_website_form_result").innerHTML = "*Please select a business from the list provided!";					
+	    }
+          };
+          
+      </script>
+					</div>
+				</t>
+			</t>
+		</field>
+	</record>
+	<record id="dealer_info.epp_select_dealer" model="website.page">
+		<field name="url">/epp_select_dealer</field>
+		<field name="website_published">True</field>
+		<field name="view_id" ref="dealer_info.epp_select_dealer"/>
+	</record>
+</odoo>

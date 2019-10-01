@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- MENU ELEMENTS -->
+
+        <!-- Left menu categories-->
+        <!--<menuitem name="Dealer Info" id="menu_dealer_info" sequence="70" groups="group_dealer_info_user"  web_icon="dealer_info,static/description/icon.png"/> -->
+        
+        
+        <!-- Left menu elements: Survey ->
+        <menuitem name="EPP Dealer Info" id="menu_dealer_info_form" action="action_dealer_info_form" parent="menu_dealer_info" sequence="1"/>
+        <menuitem name="Answers" id="menu_survey_type_form1" action="action_dealer_info_user_input" parent="menu_dealer_info" sequence="1"/-->
+        
+        
+    <!--record id="action_dealer_info" model="ir.actions.act_window">
+        <field name="name">EPP Dealer Info</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dealer.info</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <!-field name="search_view_id" ref="base.view_dealer_info_filter"/->
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a dealer info.
+          </p>
+        </field>
+    </record>
+    <record id="action_dealer_info_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.dealer_info_kanban_view"/>
+        <field name="act_window_id" ref="action_dealer_info"/>
+    </record>
+    <record id="action_dealer_info_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="base.view_dealer_info_tree"/>
+        <field name="act_window_id" ref="action_dealer_info"/>
+    </record>
+    <record id="action_dealer_info_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.view_dealer_info_form"/>
+        <field name="act_window_id" ref="action_dealer_info"/>
+    </record>
+
+    <menuitem name="Dealer Info"
+        id="menu_dealer_info"
+        sequence="4"
+        web_icon="dealer_info,static/description/icon.png"
+        groups="base.group_dealer_info,base.group_dealer_info"/>
+
+    <menuitem id="dealer_info_menu"
+        name="Dealer Info"
+        action="action_dealer_info"
+        parent="menu_dealer_info"
+        sequence="2"/>
+
+    <menuitem id="dealer_info_menu_config"
+        name="Dealer Configuration"
+        parent="menu_dealer_info"
+        groups="base.group_system"
+        sequence="2"/-->
+
+    <!--menuitem id="menu_partner_category_form"
+        action="base.action_partner_category_form"
+        name="Contact Tags"
+        sequence="1" parent="res_partner_menu_config"/>
+
+    <menuitem id="menu_partner_title_contact"
+        action="base.action_partner_title_contact"
+        name="Contact Titles" parent="res_partner_menu_config"
+        sequence="3"/>
+
+    <menuitem id="res_partner_industry_menu" name="Sectors of Activity"
+        action="base.res_partner_industry_action" parent="res_partner_menu_config"
+        sequence="4"/>
+
+    <menuitem id="menu_localisation" name="Localization"
+        parent="res_partner_menu_config" sequence="5"/>
+
+    <menuitem id="menu_country_partner"
+        action="base.action_country" parent="menu_localisation"
+        sequence="1"/>
+
+    <menuitem id="menu_country_group"
+        action="base.action_country_group"
+        name="Country Group" parent="menu_localisation"
+        sequence="3"/>
+
+    <menuitem id="menu_country_state_partner"
+        action="base.action_country_state"
+        parent="menu_localisation"
+        sequence="2"/>
+
+    <menuitem id="menu_config_bank_accounts"
+        name="Bank Accounts"
+        parent="res_partner_menu_config"
+        sequence="6"/>
+
+    <menuitem id="menu_action_res_bank_form"
+        action="base.action_res_bank_form"
+        parent="menu_config_bank_accounts"
+        sequence="1"/>
+
+    <menuitem id="menu_action_res_partner_bank_form"
+        action="base.action_res_partner_bank_account_form"
+        parent="menu_config_bank_accounts"
+        sequence="2"/-->
+    </data>
+</odoo>
