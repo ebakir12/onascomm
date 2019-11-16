@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="Products Item (Custom)" inherit_id="website_sale.products_item">
+		<xpath expr="//div[hasclass('ribbon-wrapper')]" position="replace">
+			<div class="ribbon-wrapper">
+				<div class="btn btn-danger ribbon">
+					<span t-esc="product.sale_ribbon_text"/>
+				</div>
+			</div>
+		</xpath>
+	</template>
+	<record model="ir.ui.view" id="product_template_form_view_ribbon">
+		<field name="name">product.template.product.ribbon.form</field>
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="product.product_template_form_view"/>
+		<field name="arch" type="xml">
+			<group name="sale" position="inside">
+				<group>
+					<field name="is_new"/>
+				</group>
+			</group>
+		</field>
+	</record>
+</odoo>
