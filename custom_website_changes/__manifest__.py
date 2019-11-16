@@ -11,6 +11,7 @@ Odoo E-Commerce
 ==================
 Custom Changes to the website:
 -Add custom field to Template to display in Sales Ribbon 
+
         """,
     'depends': ['website_sale'],
     'data': [
