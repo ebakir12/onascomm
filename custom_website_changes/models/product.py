@@ -7,4 +7,4 @@ from odoo import fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    sale_ribbon_text = fields.Many2many('Sales Ribbon Text', help="Text for Product Display")
+    sale_ribbon_text = fields.Char('Sales Ribbon Text', help="Text for Product Display")
