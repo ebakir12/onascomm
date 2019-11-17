@@ -16,7 +16,7 @@
 		<field name="arch" type="xml">
 			<group name="sale" position="inside">
 				<group>
-					<field name="is_new"/>
+					<field name="sale_ribbon_text"/>
 				</group>
 			</group>
 		</field>
