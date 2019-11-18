@@ -3,11 +3,15 @@
 
 import babel
 import werkzeug
+import logging
+import urllib.request as req
 
 from datetime import datetime, timedelta, time
 
 from odoo import fields, http, SUPERUSER_ID, _
 from odoo.http import request
+
+_logger = logging.getLogger(__name__)
 
 class WebsiteDealerInfo(http.Controller):
     
@@ -18,9 +22,7 @@ class WebsiteDealerInfo(http.Controller):
            ()
         """
         # dealer info
-        dealer_info = http.request.env['dealer.info']
-        dealers = dealer_info.search(['is_active', '=', 'true'])
-        return  dealers
+        return http.request.env['dealer.info'].search(['is_active', '=', 'true'])
 
 
         
@@ -54,13 +56,34 @@ class WebsiteDealerInfo(http.Controller):
         return werkzeug.utils.redirect(url)
 
     """
-        Page called when the user successfully completes the TELUS registration
+        Controller called when the user successfully completes the TELUS registration
+    """
+    @http.route('/telus/welcome/<string:rcid>', type='http', auth="public", website=True)
+    def telus_welcome_rcid(self, rcid, **kwargs):
+        user = request.env.user
+        qp = ''
+        for key, value in kwargs.items():
+            qp = qp + '&' + key + '=' + value
+                
+        if request.env.user != request.website.user_id: #request.uid == public_user.id:            
+            dealer = http.request.env['dealer.info'].search([('rcid', '=', rcid)])
+            user.update({
+                'dealer_info_id': dealer[0].id, 
+                'property_product_pricelist': dealer[0].pricelist_id
+            })
+            return werkzeug.utils.redirect('/telus/welcome' + qp.replace('&', '?', 1))
+        else:
+            return werkzeug.utils.redirect('/web/login?redirect=/telus/welcome/' + rcid + req.pathname2url(qp.replace('&', '?', 1)))
+        
+        
+    """
+        Page called when the user logs in
     """
     @http.route('/telus/welcome', type='http', auth="public", website=True)
     def telus_welcome(self, **kwargs):
         user = request.env.user
         values = {}
-        values['property_product_pricelist'] = user.dealer_info_id.pricelist_id
+        
         if 'program_code' in kwargs:
             values['telus_program_code'] = kwargs['program_code']
         if 'activation_code' in kwargs:

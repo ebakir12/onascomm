@@ -11,6 +11,8 @@ class DealerInfo(models.Model):
     contact_email = fields.Char(string='Internal Contact')
     is_active = fields.Boolean(string='Active')
     pricelist_id = fields.Many2one('product.pricelist', string='Pricelist')
+    dealer_image = fields.Binary(string='Dealer Image')
+    welcome_text = fields.Text(string='Welcome Text')
 
     # @api.model
     # def create(self, data):
@@ -37,3 +39,9 @@ class product_pricelist(models.Model):
     _inherit = "product.pricelist"
     
     telus_discount_image = fields.Binary(string='Discount Image')
+
+class product_pricelist(models.Model):
+    _inherit = "product.pricelist.item"
+    
+    price_1 = fields.Float(string='Custom Price 1')
+    price_2 = fields.Float(string='Custom Price 2')

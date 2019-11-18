@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<record id="dealer_info.epp_select_dealer" model="ir.ui.view">
+	<!--record id="dealer_info.epp_select_dealer" model="ir.ui.view">
 		<field name="name">EPP Business</field>
 		<field name="type">qweb</field>
 		<field name="key">dealer_info.epp_select_dealer</field>
@@ -29,7 +29,7 @@
               							<span id="telus-EPP" class="btn btn-lg btn-primary">Submit</span>&amp;nbsp; <span id="o_website_form_result" class="text-danger ml8"/>
 							</div>
 						</div>
-						<!--/form-->
+						<!- /form ->
 						<script>          
           document.getElementById("telus-EPP").onclick = function(self){
 	   var dealer_id = $('#eppDealers option[value="' + $('#eppDealerInput').val() + '"]').attr('data-id');
@@ -48,10 +48,10 @@
 				</t>
 			</t>
 		</field>
-	</record>
-	<record id="dealer_info.epp_select_dealer" model="website.page">
+	</record-->
+	<!--record id="dealer_info.epp_select_dealer" model="website.page">
 		<field name="url">/epp_select_dealer</field>
 		<field name="website_published">True</field>
 		<field name="view_id" ref="dealer_info.epp_select_dealer"/>
-	</record>
+	</record-->
 </odoo>
