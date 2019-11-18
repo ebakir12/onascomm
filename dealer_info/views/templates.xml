@@ -8,7 +8,70 @@
 			  <xpath expr="//field[@name='country_group_ids']" position="after"> 
 			       <field name="telus_discount_image" widget='image'/>
 			  </xpath> 
+			  <xpath expr="//field[@name='compute_price']" position="after"> 
+			       <field name="price_1" string="Cost /Mo"/>
+			       <field name="price_2"/>
+			  </xpath> 
 		</field> 
+	</record>
+	
+	
+	<record id="form_product_pricelist_item_custom" model="ir.ui.view"> 
+		<field name="name">product.pricelist.item.form.inherited</field>
+		     <field name="model">product.pricelist.item</field> 
+		     <field name="inherit_id" ref="product.product_pricelist_item_form_view"/> 
+		     <field name="arch" type="xml"> 
+			  <xpath expr="(//group/group)[position()=3]" position="after"> 
+				  <group>
+					  <field name="price_1" string="Cost/Mo"/>
+					  <field name="price_2"/>
+				  </group>			       
+			  </xpath> 
+		</field> 
+	</record>
+	
+	<record id="form_dealer_info" model="ir.ui.view"> 
+		<field name="name">Dealer Info Form</field>
+		<field name="model">dealer.info</field>
+		<field name="arch" type="xml">
+			<form string="Dealer Information">
+				<header>
+				</header>
+				<sheet>
+					<field name="id" invisible="1"/>
+					<field name="dealer_image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;dealer_image&quot;}"/>
+					<div class="oe_title">
+						<label for="name" class="oe_edit_only"/>
+						<h1><field name="name" required="1"/></h1>
+						<label for="is_active" string="Active"/>
+						<field name="is_active" string="Active"/>
+						<!--field name="email" invisible="1"/>
+						<label for="login" class="oe_edit_only" string="Email Address"/>
+						<h2><field name="login"/></h2-->
+						<!--group>
+							<field name="partner_id" readonly="1" required="0" groups="base.group_no_one" attrs="{'invisible': [('id', '=', False)]}"/>
+						</group-->
+					</div>
+					<notebook colspan="4">
+						<page name="general" string="General">
+							<group string="General Information">
+								<field name="rcid"/>
+								<field name="pricelist_id"/>
+							</group>
+							<group string="Welcome Text">
+								<field name="welcome_text"/>
+							</group>
+						</page>
+						<page name="contact" string="Contact Information">
+							<group string="Dealer Contacts">
+								<field name="contact_email" string="Internal Contact Email"/>
+								<field name="dealer_url"/>
+							</group>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
 	</record>
 	
 	
@@ -32,17 +95,17 @@
           <div class="row">
             <div class="col-md-12">
               <!--img class="img img-responsive" src="/dealer_info/static/images/30percentoff.PNG" style="margin: 0 auto;" alt="30% off"/-->
-	<span t-field="request.env.user.property_product_pricelist.telus_discount_image" t-field-options='{"widget": "image", "style": "margin: 0 auto;"}'></span>
+	<span t-field="request.env.user.dealer_info_id.dealer_image" t-field-options='{"widget": "image", "style": "margin: 0 auto;"}'></span>
             </div>
             <div class="col-md-6 col-md-offset-3 mb16 mt16">
               <p class="text-center">
                 <b class="o_default_snippet_text"> </b>
               </p>
               <p class="text-center o_default_snippet_text">
-                        Please review the Phones available to you through your Employee Purchase Program
+                        <span t-field="request.env.user.dealer_info_id.welcome_text">Please review the Phones available to you through your Employee Purchase Program</span>
                     </p>
               <p class="text-center">
-                <a href="/shop/category/phone-19" class="btn btn-primary">Phones</a>
+                <a href="/shop/category/phone-19" class="btn btn-primary">Start Shopping</a>
               </p>
             </div>
           </div>
