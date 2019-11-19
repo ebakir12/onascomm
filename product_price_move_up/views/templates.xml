@@ -19,6 +19,7 @@
 
 	<template id="product" name="Product (Custom)" inherit_id="website_sale.product" customize_show="True">
 		<xpath expr="//div[@id='product_details']//div[hasclass('js_product')]" position="before">
+      			<t t-set="curr_pl" t-value="website.get_current_pricelist()"/>
 			<div id="upperProductPrice"/>
 			<div id="perMonth" style="font-size: 20px">Due Monthly 
 			  <b>
