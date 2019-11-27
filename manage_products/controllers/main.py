@@ -36,7 +36,7 @@ class ProductManagement(http.Controller):
             vlist = variants.filtered(lambda x: c.id in x.attribute_value_ids.ids)
             for variant in vlist:
                 count = count + 1
-                variant.sudo().write({"image_medium": colour['image_medium']})
+                variant.sudo().write({"image_medium": colour['image_variant']})
         """
         variants = http.request.env['product.product'].search([('product_tmpl_id', '=', tmpl.id)])
         _logger.debug('*** Variants list: %s', variants)
@@ -45,7 +45,7 @@ class ProductManagement(http.Controller):
         product_colours = []
         for c in colours:
             single_colour = variants.filtered(lambda x: c.id in x.atribute_value_ids)
-            product_colours.append({"colour":c.name, "image_variant": single_colour[0].image_medium})
+            product_colours.append({"colour":c.name, "image_medium": single_colour[0].image_medium})
         product = {
             "name":tmpl.name,
             "colours": product_colours

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Part of Odoo Module Developed by 73lines
+    See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+
+    <!-- ======== Product Carousel ======== -->
+    <!-- Snippet's Body -->
+    <template id="s_product_carousel" name="Product Carousel Slider">
+        <section
+                class="s_product_carousel oe_website_sale js_get_objects mb8 product_carousel"
+                data-loading="true"
+                data-template="snippet_product_carousel_73lines.product_list_template"
+                data-object_name="product.template">
+        </section>
+    </template>
+
+
+    <!-- Latest products's Template -->
+    <template id="product_list_template">
+        <div class="container">
+            <div class="headline">
+                <h2 t-esc="title"></h2>
+                <hr class="mt0 mb0"/>
+            </div>
+            <div class="product-list owl-carousel owl-theme mb8 mt8">
+                <t t-foreach="objects" t-as="obj">
+                    <div class="item product-single">
+                        <t t-foreach="obj" t-as="product">
+                            <t t-call="snippet_product_carousel_73lines.new_products_item"/>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </template>
+
+    <!-- Products Details in Carousel Snippet -->
+    <template id="new_products_item" name="Products item">
+        <form action="/shop/cart/update" method="post">
+            <input type="hidden" name="csrf_token"
+                   t-att-value="request.csrf_token()"/>
+            <div itemscope="itemscope" itemtype="http://schema.org/Product">
+                <div class="oe_product_image_carousel">
+                    <a itemprop="url"
+                       t-att-href="'/shop/product/%s' % slug(product)">
+                        <span itemprop="image" t-field="product.image"
+                              t-options='{"widget": "image", "resize": None if product_image_big else "300x300"}'
+                              t-att-alt="product.name"/>
+                    </a>
+                </div>
+                <section>
+                    <h5>
+                        <strong>
+                            <a itemprop="name"
+                               t-att-href="'/shop/product/%s' % slug(product)"
+                               t-field="product.name"/>
+                        </strong>
+                    </h5>
+                    <div itemprop="offers" itemscope="itemscope"
+                         itemtype="http://schema.org/Offer"
+                         class="product_price easy-shortcuts-price"
+                         t-if="product.product_variant_ids">
+                        <b>
+                            <t t-if="(compute_currency(product.lst_price) - product.website_price ) &gt; 0.1  and website.get_current_pricelist().discount_policy=='without_discount'">
+                                <del class="text-danger mr8"
+                                     style="white-space: nowrap;"
+                                     t-esc="compute_currency(product.website_public_price)"
+                                     t-options="{'widget': 'monetary', 'display_currency': website.get_current_pricelist().currency_id, 'from_currency': website.currency_id}"/>
+                            </t>
+
+                            <span t-esc="product.website_price"
+                                  t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                            <span itemprop="price" style="display:none;"
+                                  t-esc="product.price"/>
+                            <span itemprop="priceCurrency"
+                                  style="display:none;"
+                                  t-esc="website.currency_id.name"/>
+                        </b>
+                    </div>
+                </section>
+                <div class="text-left easy-shortcuts-user-rating">
+                    <t t-name="website_rating.rating_stars_static">
+                        <t t-set="val_integer"
+                           t-value="round(get_rating_stat(product)['avg'])"/>
+                        <t t-set="val_decimal" t-value="0"/>
+                        <t t-set="empty_star"
+                           t-value="5 - val_integer"/>
+                        <div class="o_website_rating_static">
+                            <t t-foreach="range(0,val_integer)"
+                               t-as="num">
+                                <i class="fa fa-star"/>
+                            </t>
+                            <t t-if="val_decimal">
+                                <i class="fa fa-star-half-o"/>
+                            </t>
+                            <t t-foreach="range(0,empty_star)" t-as="num">
+                                <i class="fa fa-star-o"/>
+                            </t>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </form>
+    </template>
+
+    <!-- Inherit product carousel template and added Add to Cart option -->
+    <template id="new_products_add_to_cart"
+              inherit_id="snippet_product_carousel_73lines.new_products_item"
+              name="Product Carousel Add to Cart">
+        <xpath expr="//div[hasclass('product_price')]"
+               position="inside">
+            <input name="product_id"
+                   t-att-value="product.product_variant_ids[0].id"
+                   type="hidden"/>
+            <t t-if="len(product.product_variant_ids) == 1">
+                <button type="submit"
+                        class="btn btn-default btn-xs easy-shortcuts-add-to-cart"
+                        formaction="/shop/cart/update_continue"
+                        data-toggle="tooltip" title="Add to Cart">
+                    <span class="fa fa-shopping-cart"/>
+                </button>
+            </t>
+            <t t-if="len(product.product_variant_ids) &gt; 1">
+                <a class="btn btn-default btn-xs easy-shortcuts-add-to-cart"
+                   t-att-href="'/shop/product/%s' % slug(product)">
+                    <span class="fa fa-shopping-cart"/>
+                </a>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Inherit product carousel template and added WishList options -->
+    <template id="new_products_item_inherit"
+              inherit_id="snippet_product_carousel_73lines.new_products_item"
+              name="Product Carousel WishList">
+        <xpath expr="//div[hasclass('product_price')]" position="inside">
+            <t t-if="website.user_id != user_id and product.website_published and 'on' or 'off' == 'on'">
+                <t t-if="uid &gt; 0">
+                    <t t-set="in_wish"
+                       t-value="product.product_variant_ids &amp; request.env['product.wishlist'].current().mapped('product_id')"/>
+                    <a class="btn btn-default btn-xs o_add_wishlist"
+                       t-att-disabled='in_wish or None' title="Add to Wishlist"
+                       t-att-data-product-product-id="product.product_variant_ids[0].id"
+                       data-action="o_wishlist">
+                        <span class="fa fa-heart"></span>
+                    </a>
+                </t>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Customize Options in Carousel's Customize Menu -->
+    <template id="s_object_carousel_customize_options"
+              inherit_id="carousel_slider_73lines.s_object_carousel_option">
+        <xpath expr="//div[@data-js='js_get_objects_headline']"
+               position="after">
+            <div data-js='js_get_objects'
+                 data-selector=".js_get_objects.product_carousel">
+                <li class="divider"></li>
+                <li class="price_js" data-toggle-class="price_hidden">
+                    <a href="#">Hide Price</a>
+                </li>
+                <li data-toggle-class="user_rating_hidden">
+                    <a href="#">Hide User Ratings</a>
+                </li>
+                <li data-toggle-class="wishlist_hidden">
+                    <a href="#">Hide WishList</a>
+                </li>
+                <li class="add_to_cart_js"
+                    data-toggle-class="add_to_cart_hidden">
+                    <a href="#">Hide Add to Cart</a>
+                </li>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
