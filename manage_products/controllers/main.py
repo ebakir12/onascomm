@@ -36,7 +36,7 @@ class ProductManagement(http.Controller):
             vlist = variants.filtered(lambda x: c.id in x.attribute_value_ids.ids)
             for variant in vlist:
                 count = count + 1
-                variant.sudo().write({"image_variant": colour['image_medium']})
+                variant.sudo().write({"image_medium": colour['image_medium']})
         
         Response.status = '200'
         return json.dumps({"count":count})
