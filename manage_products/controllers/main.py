@@ -45,7 +45,7 @@ class ProductManagement(http.Controller):
         product_colours = []
         for c in colours:
             single_colour = variants.filtered(lambda x: c.id in x.atribute_value_ids)
-            product_colours.append({"colour":c.name, "image_medium": single_colour[0].image_medium})
+            product_colours.append({"colour":c.name, "image_variant": single_colour[0].image_medium})
         product = {
             "name":tmpl.name,
             "colours": product_colours
