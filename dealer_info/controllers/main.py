@@ -65,8 +65,18 @@ class WebsiteDealerInfo(http.Controller):
         for key, value in kwargs.items():
             qp = qp + '&' + key + '=' + value
                 
-        if request.env.user != request.website.user_id: #request.uid == public_user.id:            
-            dealer = http.request.env['dealer.info'].search([('rcid', '=', rcid)])
+        if request.env.user != request.website.user_id: #request.uid == public_user.id:     
+            dealer_info = http.request.env['dealer.info']
+            dealer = dealer_info.search([('rcid', '=', rcid)])       
+            if not dealer:
+                pricelist = http.request.env['product.pricelist'].sudo().search([])
+                dealer = dealer.create({
+                    'name':'Name not set!!!', 
+                    'rcid':rcid, 
+                    'is_active':True, 
+                    'pricelist_id': pricelist[0].id
+                })
+                
             user.update({
                 'dealer_info_id': dealer[0].id, 
                 'property_product_pricelist': dealer[0].pricelist_id
