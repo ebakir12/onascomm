@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="aboutus_inherit" inherit_id="website.aboutus">
+        <xpath expr="//div[hasclass('oe_structure')]" position="replace">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section id="about-us-savvy">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="text-primary">About Us</h1>
+                            </div>
+                            <div class="col-md-6">
+                                <img class="img img-responsive" src="/customer_telus_theme/static/src/image/about_xl/about-us.png"/>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Mobile Savvy, a Telus Authorized Dealer, is one of the largest Telus Dealers in Ontario.
+                                </p>
+                                <p>Mobile Savvy has 8 locations to serve you better, located in Hamilton, Mississauga, London, 
+                                St. Catherines, Niagara Falls and Kitchener.
+                                </p>
+                                <p>We are an award-winning Telus dealer, dedicated to providing unique wireless solutions that suit 
+                                our customer’s needs.
+                                </p>
+                                <p>This is achieved through our highly experienced and tech savvy staff, whose #1 goal is to take 
+                                care of all our customer’s needs. With over 10 years in the telecommunications industry, Mobile Savvy 
+                                understands how to create personalized solutions to match your needs. We make purchasing wireless 
+                                products easy and simple.
+                                </p>
+                            </div>
+                            <div class="col-md-12">
+                                <p>Mobile Savvy also specializes in building a brilliant digital future for small and enterprise 
+                                businesses across Canada. But we don’t think of our business customers as customers. We think of each 
+                                one as a partner.
+                                </p>
+                                <p>We pride ourselves on combining service and expertise with innovative products to meet the needs of 
+                                your business.
+                                </p>
+                                <p>Another thing we are really proud of at Mobile Savvy is that we are an inclusive brand. That’s why our 
+                                multicultural staff is happy to support customers in a variety of languages. We are also highly integrated 
+                                in the local communities we serve and are dedicated to giving back to serve others.
+                                </p>
+                                <p>We have an Omni Channel location strategy which provides our customers the option to purchase products 
+                                or to get service either in store or online.
+                                </p>
+                                <p>Whatever your wireless needs are, we have the right device, with the right plan and the best price.
+                                </p>
+                                <p>Visit out locations page to find a location near you or if you have any questions contact us at <a href="mailto:help@mobilesavvy.ca" target="_top">help@mobilesavvy.ca</a>.
+                                </p>
+                                <h2 class="text-primary">Message from the Owner</h2>
+                                <p>On behalf of the wonderful team at Mobile Savvy, I would like to thank you for visiting our website and 
+                                stores and most of all, trusting us with your hard-earned business. We are always striving for excellence and 
+                                welcome your feedback. If you would like to contact us directly regarding your experience with Mobile Savvy, 
+                                please send us an email at <a href="mailto:help@mobilesavvy.ca" target="_top">help@mobilesavvy.ca</a> 
+                                and we will get back to you as soon as possible.
+                                </p>
+                                <p>We look forward to hearing from you,<br/>
+Waleed</p>
+                            </div>
+                            <div class="hidden col-md-12 col-sm-12 text-center mt64 mb64">
+                                <div class="col-md-4 col-sm-4">
+                                    <img class="img img-responsive img-circle center-block" src="/customer_telus_theme/static/src/image/about_xl/team-1.png"/>
+                                    <h3 class="text-primary">Ehab Bakir</h3>
+                                    <p>Ehab started In 1995 and provides the leadership needed to maintain our reputaton
+                                        and goodwill in the community.
+                                    </p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <img class="img img-responsive img-circle center-block" src="/customer_telus_theme/static/src/image/about_xl/team-2.png"/>
+                                    <h3 class="text-primary">Waleed Salha</h3>
+                                    <p>Waleed started in 1995 and provides the leader-ship needed to maintain our
+                                        reputaton and good-will In the community.
+                                    </p>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <img class="img img-responsive img-circle center-block" src="/customer_telus_theme/static/src/image/about_xl/team-1.png"/>
+                                    <h3 class="text-primary">Tarek Salha</h3>
+                                    <p>Ehab started In 1995 and provides the leadership needed to maintain our reputaton
+                                        and goodwill in the community.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>

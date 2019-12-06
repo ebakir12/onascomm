@@ -1,0 +1,122 @@
+@navbar-default-color: #000;
+@navbar-default-bg: transparent;
+@navbar-default-border: darken(@navbar-default-bg, 6.5%);
+// Navbar links
+@navbar-default-link-color: #000;
+@navbar-default-link-hover-color: #000;
+@navbar-default-link-hover-bg: transparent;
+@navbar-default-link-active-color: #000;
+@navbar-default-border: #333;
+
+#top_menu > li:not(:last-child) a {
+  border-right: 1px solid #000;
+}
+
+/* NOT Extra Small Devices, Phones */
+
+.bl1 {
+  border-left: 1px solid;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+
+#top_menu .divider {
+  display: none;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+.social-icon-menu a {
+  display: inline !important;
+  padding: 0 6px !important;
+}
+
+#top_menu_right {
+  padding: 13px 0;
+}
+
+#top_menu_right li {
+  padding: 0 15px;
+}
+
+#top_menu_right li:not(:last-child) {
+  border-right: 1px solid #000;
+}
+
+.clock-color,
+.time {
+  color: @color-primary;
+}
+
+.social-icon-menu {
+  a {
+    color: @color-primary;
+
+    .fa {
+      padding: 6px;
+      text-align: center;
+      display: inline;
+      border-radius: 50%;
+      border: 1px solid;
+    }
+  }
+}
+
+.search-color {
+  color: @color-success;
+  font-size: 21px;
+}
+
+.font16 {
+  font-size: 16px;
+  padding-right: 16px;
+}
+
+.mr12 {
+  margin-right: 12px;
+}
+
+#tab-group-btn {
+  overflow: hidden;
+}
+
+#tab-group-btn li {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+a.on {
+  z-index: 1;
+  top: 0;
+}
+
+.btrlr {
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  top: -6px;
+  padding-top: 24px;
+  padding-left: 28px;
+  position: relative;
+}
+
+.top-pos {
+  position: relative;
+  left: -20px;
+}
+
+.navbar-toggle {
+  padding: 12px 10px;
+  border-radius: 50px;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: @color-primary;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: @color-primary;
+}

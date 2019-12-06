@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="product_price" name="Product Price (Custom)" inherit_id="website_sale.product_price" customize_show="True">
+		<xpath expr="//div[hasclass('product_price','mt16')]" position="replace">
+			<div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" id="productPrice" class="product_price mt16">
+				<h4 class="oe_price_h4 css_editable_mode_hidden">
+					<span class="text-danger oe_default_price" style="text-decoration: line-through; white-space: nowrap;" t-esc="compute_currency(product.website_public_price)" t-options="{'widget': 'monetary', 'display_currency': website.get_current_pricelist().currency_id, 'from_currency': website.currency_id}" t-att-style="'text-decoration: line-through; white-space: nowrap; ' + '' if product.website_price_difference and website.get_current_pricelist().discount_policy == 'without_discount' else 'display: none;'"/>
+					<b class="oe_price" style="white-space: nowrap; font-size:30px" t-esc="product.website_price" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+					<span itemprop="price" style="display:none;" t-esc="product.website_price"/>
+					<span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+				</h4>
+				<h4 class="css_non_editable_mode_hidden decimal_precision" t-att-data-precision="str(product.currency_id.decimal_places)">
+					<span t-field="product.lst_price" t-options="{                    &quot;widget&quot;: &quot;monetary&quot;,                    &quot;display_currency&quot;: product.currency_id,                }"/>
+				</h4>
+				<h4 class="hidden oe_not_available bg-warning">Product not available</h4>
+			</div>
+		</xpath>
+	</template>
+
+	<template id="product" name="Product (Custom)" inherit_id="website_sale.product" customize_show="True">
+		<xpath expr="//div[@id='product_details']//div[hasclass('js_product')]" position="before">
+			<div id="upperProductPrice"/>
+			<div id="perMonth" style="font-size: 20px">Due Monthly 
+			  <b>
+			    <span id="monthly_list">$  
+			      <t t-foreach="curr_pl.sudo().item_ids.filtered(lambda x: x.product_id.product_tmpl_id.id == product.id)" t-as="list_item">
+			        <span t-attf-class="{{'' if product.product_variant_id.id == list_item.product_id.id else 'hidden'}}" t-attf-id="product-{{list_item.product_id.id}}" t-field="list_item.price_1" name="product_variant_price">0.00</span>
+			      </t>
+			    </span>
+			  </b>
+	    		</div>
+		</xpath>
+	</template>
+
+	<template id="products" name="Products (Custom)" inherit_id="website_sale.products" customize_show="True">
+		<xpath expr="//div[@id='wrap']//div[hasclass('products_pager')]" position="replace">
+			<t t-call="product_price_move_up.shop_phones_top" />
+			<t t-call="product_price_move_up.shop_tablets_top" />
+			<t t-call="product_price_move_up.shop_watches_top" />
+			<div style="display:none;" class="products_pager">
+	                        <div class="row" style="width: 100%;">
+	                            <t t-call="website_sale.search">
+	                                <t t-set="search_class" t-value="'pagination form-inline o_website_sale_search'"/>
+	                            </t>
+	                            <t t-call="website_sale.pricelist_list" />
+	                            <t t-call="website.pager" />
+	                        </div>
+	                	</div>
+			<t t-call="product_price_move_up.cust_display_categories" />			
+		</xpath>
+	</template>
+
+	<!-- Parent Category Type Displays -->
+	<template id="shop_phones_top" name="Shop Phones (Top)">
+        		<div t-if="category and (category.name == 'Phones' or category.parent_id.name == 'Phones')">
+			<h1 style="padding-top:10px" class="text-primary">Phones</h1>
+			<div class="text-grey">
+				<p class="text-grey">Are you looking for the latest iPhone or Samsung Galaxy device? We’ve got it.</p>
+				<p>Are you looking to upgrade your phone to a new $0 phone? We can do that.</p>
+				<p>Being one of the largest Telus authorized dealers in Ontario, we are able 
+				to carry one of the largest selections of phones anywhere.</p>
+				<p>We carry all the major brands – Apple, Samsung, LG, Google, Huawei and Alcatel.</p>
+				<p>We’ve got the phone that is right for you.</p>
+				<p>Plus, with our well-trained and knowledgeable staff, we will not only make sure 
+				you get the phone that is best for you, but we’ll make sure you get the best price too.</p>
+				<p>Check out our huge selection below. You can buy online right now or come into one 
+				of our conveniently located locations if you have any questions.</p><br/>
+			</div>						
+		</div>
+    	</template>
+
+	<template id="shop_tablets_top" name="Shop Tablets (Top)">
+        	<div t-if="category and (category.name == 'Tablets' or category.parent_id.name == 'Tablets') ">
+			<h1 style="padding-top:10px" class="text-primary">Tablets</h1>
+			<div class="text-grey">
+				<p class="text-grey">Tablet Info!</p>
+				<br/>
+			</div>
+		</div>
+    	</template>
+
+	<template id="shop_watches_top" name="Shop Smart Watches (Top)">
+        	<div t-if="category and (category.name == 'Smart Watches' or category.parent_id.name == 'Smart Watches') ">
+			<h1 style="padding-top:10px" class="text-primary">Smart Watches</h1>
+			<div class="text-grey">
+				<p class="text-grey">Smart Watch Info!</p><br/>
+			</div>						
+		</div>
+    	</template>
+
+	<!-- Product Categories -->
+	<template id="cust_display_categories" name="eCommerce Category Links">
+        		<t t-if="category">
+			<div class="col-md-12" t-att-style="'padding: 0px 15px 15px 15px;'" id="productCategories">
+				<t t-set="top_category" t-value="category.parent_id if category.parent_id else category"/>
+				<span class="telus-category-show">
+					<b>Show:</b>
+				</span>
+				<ul class="telus-category-list">
+					<li style="display:inline-flex;" t-attf-class="telus-categories-list-item">
+						<a t-att-href="keep('/shop/category/' + slug(top_category), category=0)" t-field="top_category.name" t-attf-class="telus-category-button {{ 'active' if top_category == category else '' }} "></a>
+					</li>			
+					<t t-foreach="top_category.child_id" t-as="categ">
+						<li style="display:inline-flex;" t-attf-class="'telus-categories-list-item'">
+							<a t-att-href="keep('/shop/category/' + slug(categ), category=0)" t-field="categ.name" t-attf-class="telus-category-button {{ 'active' if categ == category else '' }} "></a>
+						</li>
+					</t>
+				</ul>
+			</div>
+		</t>
+		<t t-else="">
+			<div class="col-md-12" t-att-style="'padding: 0px 15px 15px 15px;'" id="productCategories">
+				<span class="telus-category-show">
+					<b>Show:</b>
+				</span>
+				<ul class="telus-category-list">
+					<t t-foreach="categories" t-as="categ">
+						<li style="display:inline-flex;" t-attf-class="telus-categories-list-item">
+							<a t-att-href="keep('/shop/category/' + slug(categ), category=0)" t-field="categ.name" t-attf-class="'telus-category-button'"></a>
+						</li>
+					</t>
+				</ul>
+			</div>
+		</t>
+    	</template>
+
+</odoo>

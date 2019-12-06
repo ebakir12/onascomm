@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="product_prices_list">
+      <field name="name">Product Prices List</field>
+      <field name="model">product.prices</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="pricelist_id"/>
+        </tree>
+      </field>
+    </record>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="product_prices_items_list">
+      <field name="name">Product Price Items List</field>
+      <field name="model">product.prices.item</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="prices_id"/>
+          <field name="product_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="product_prices_action_window">
+      <field name="name">Product Prices</field>
+      <field name="res_model">product.prices</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+	
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="product_prices_item_action_window">
+      <field name="name">Product Price Items</field>
+      <field name="res_model">product.prices.item</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <!--record model="ir.actions.server" id="dealer_info.action_server">
+      <field name="name">openacademy server</field>
+      <field name="model_id" ref="model_dealer_info_dealer_info"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record-->
+
+    <!-- Top menu item -->
+    <menuitem name="Manage Product Prices" id="product_prices_menu_root"/>
+
+    <!-- menu categories -->
+    <menuitem name="Product Prices" id="product_prices_menu_1" parent="product_prices_menu_root"/>
+    <menuitem name="Product Price Items" id="product_prices_menu_2" parent="product_prices_menu_root"/>
+
+    <!-- actions -->
+    <menuitem name="Product Prices" id="product_prices_menu_1_list" parent="product_prices_menu_1"
+              action="product_prices_action_window"/>
+    <!-- actions -->
+    <menuitem name="Product Price Items" id="product_prices_menu_2_list" parent="product_prices_menu_2"
+              action="product_prices_item_action_window"/>
+    <!--menuitem name="Server to list" id="dealer_info" parent="dealer_info.menu_2"
+              action="dealer_info.action_server"/-->
+  </data>
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="website.layout_logo_show" inherit_id="website.layout" customize_show="False" name="Show Logo">
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
+            <a href="/" class="navbar-brand logo">
+                <span t-field="res_company.logo" t-options="{'widget': 'image'}"
+                      t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+            </a>
+        </xpath>
+    </template>
+
+    <template id="portal_inherit" inherit_id="portal.frontend_layout">
+        <xpath expr="//div[hasclass('navbar','navbar-default','navbar-static-top')]" position="before">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 pt15 hidden-xs hidden-sm">
+                        <a href="/" class="">
+                            <span t-field="res_company.logo" t-options="{'widget': 'image'}"
+                                  t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                        </a>
+                    </div>
+                    <div class="col-md-5 col-xs-12 pad0">
+                        <ul class="hidden list-inline text-center" id="tab-group-btn">
+                            <li id="personal-btn">
+                                <a href="/personal-homepage" class="btn btn-primary btn-md btrlr">
+                                    <i class="fa fa-user fa-2x"/>
+                                    <span class="font16">Personal</span>
+                                </a>
+                            </li>
+                            <li class="top-pos" id="business-btn">
+                                <a href="/" class="btn btn-success btn-md btrlr">
+                                    <i class="fa fa-user fa-2x"/>
+                                    <span class="font16">Business</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 pt15 hidden-xs hidden-sm">
+                        <img class="img img-responsive pull-right"
+                             src="/customer_telus_theme/static/src/image/personal_xl/telus-img.png"/>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']" position="attributes">
+            <attribute name="class">nav navbar-nav navbar-left</attribute>
+        </xpath>
+        <xpath expr="//a[hasclass('navbar-brand','logo')]" position="after">
+            <div class="col-md-4 col-xs-5 hidden-lg hidden-md bl1">
+                <img class="img img-responsive pull-right"
+                     src="/customer_telus_theme/static/src/image/personal_xl/telus-img.png"/>
+            </div>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']" position="after">
+            <ul class="nav navbar-nav navbar-right" id="top_menu_right">
+                <li style="display:none;">
+                    <b>
+                        <i class="fa fa-clock-o clock-color"/>
+                        <span>Mon - Sat :</span>
+                        <span class="time">09:00am to 18:00pm</span>
+                    </b>
+                </li>
+                <li class="social-icon-menu" style="display:none;">
+                    <div>
+                        <a t-att-href="website.social_facebook" t-if="website.social_facebook">
+                            <i class="fa fa-facebook-square"/>
+                        </a>
+                        <a t-att-href="website.social_twitter" t-if="website.social_twitter">
+                            <i class="fa fa-twitter"/>
+                        </a>
+                        <a t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                            <i class="fa fa-linkedin"/>
+                        </a>
+                        <a t-att-href="website.social_youtube" t-if="website.social_youtube">
+                            <i class="fa fa-youtube-play"/>
+                        </a>
+                        <a t-att-href="website.social_googleplus" t-if="website.social_googleplus"
+                           rel="publisher">
+                            <i class="fa fa-google-plus-square"/>
+                        </a>
+                        <a t-att-href="website.social_github" t-if="website.social_github">
+                            <i class="fa fa-github"/>
+                        </a>
+                    </div>
+                </li>
+                <li class="dropdown" id="search-savvy">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="fa fa-search search-color"/>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <div>
+                            <form action="/shop" method="get" t-att-class="search_class">
+                                <t t-if="attrib_values">
+                                    <t t-foreach="attrib_values" t-as="a">
+                                        <input type="hidden" name="attrib"
+                                               t-att-value="'%s-%s' % (a[0], a[1])"/>
+                                    </t>
+                                </t>
+                                <t t-call="website.website_search_box"/>
+                            </form>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </xpath>
+    </template>
+</odoo>
