@@ -51,11 +51,9 @@ class sales_order(models.Model):
     _inherit = "sale.order"
     
     partner_user_id = fields.Many2one('res.users', string='Partner User Id')
-    """
     dealer_info = fields.Char(related='partner_user_id.dealer_info_id.name', string="Dealer Organization")
     dealer_info_rcid = fields.Char(related='partner_user_id.dealer_info_id.rcid', string="RCID")
     user_id_activation_code = fields.Char(related='partner_user_id.telus_activation_code', string="Activation Code")
-    """
     partner_id_phone = fields.Char(related='partner_id.phone', string="Phone")
     partner_id_email = fields.Char(related='partner_id.email', string="Email")
     
