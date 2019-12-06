@@ -46,6 +46,7 @@ class product_pricelist(models.Model):
     price_1 = fields.Float(string='Custom Price 1')
     price_2 = fields.Float(string='Custom Price 2')
 
+    """
 class sales_order(models.Model):
     _inherit = "sale.order"
     
@@ -63,3 +64,4 @@ class sales_order(models.Model):
             data['partner_user_id'] = user_id.id
         res = super(sales_order, self).create(data)        
         return res
+"""
