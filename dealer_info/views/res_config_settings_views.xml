@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <record id="res_config_settings_view_form" model="ir.ui.view">
+        <!--record id="res_config_settings_view_form" model="ir.ui.view">
             <field name="name">res.config.settings.view.form.inherit.dealer.info</field>
             <field name="model">res.config.settings</field>
             <field name="priority" eval="20"/>
@@ -24,15 +24,15 @@
 	                                    <label class="col-md-3 o_light_label" for="campaign_id" />
 	                                    <field name="campaign_id"/>
 	                                </div>
-	                                <!--div class="row">
+	                                <!-div class="row">
 	                                    <label class="col-md-3 o_light_label" for="campaign_id" />
 	                                    <field name="campaign_id"/>
-	                                </div-->
+	                                </div->
 	                            </div>
 	                        </div>
 	                    </div>
 	                </div>
                     </div>
             </field>
-        </record>
+        </record-->
 </odoo>
