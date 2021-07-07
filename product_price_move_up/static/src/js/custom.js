@@ -46,5 +46,32 @@ $(document).ready(function () {
 			//Start Observing
 			observer.observe(target, config);
 		}
+	}
+	
+	let prod = document.getElementsByName("product_id");
+	if(prod){
+		let targetC = prod[0];
+		let prices = document.getElementsByName("product_variant_price");
+		if(prices && targetC){
+			let callbackC = function(mutations){
+				for(i = 0; i < prices.length; i++){
+					if("product-" + targetC.value == prices[i].id){
+					    prices[i].classList.remove('hidden');
+					}
+					else{
+					    prices[i].classList.add('hidden');	
+					}	
+				}
+			};
+	
+			//Create Observer
+			let observerC = new MutationObserver(callbackC);
+	
+			//Set config settings
+			let configC = { attributes: true, childList: true, subtree: true, characterData: true };
+	
+			//Start Observing
+			observerC.observe(targetC, configC);
+		}
 	}	
 });
